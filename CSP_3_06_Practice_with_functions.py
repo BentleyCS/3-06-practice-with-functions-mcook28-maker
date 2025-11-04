@@ -10,7 +10,8 @@ def root(n):
 def semiPerimeter():
     pass
 
-
+#Modify the below function such that it takes in 4 arguments. multiply the first
+#argument by the difference between itself and each individual argument. Reference herons formula for more context.
 def multiplyDifferences():
     pass
 
