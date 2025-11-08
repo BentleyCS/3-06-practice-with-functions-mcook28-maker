@@ -1,44 +1,26 @@
-#Herons Formula
 import math
-
-#returns the square root of the number n
 def root(n):
     return math.sqrt(n)
-
-#Takes in the 3 side lengths of a triangle as arguments and returns half of
-#the perimeter of a triangle.
-def semiPerimeter():
-    pass
-
-#Modify the below function such that it takes in 4 arguments. multiply the first
-#argument by the difference between itself and each individual argument. Reference herons formula for more context.
-def multiplyDifferences():
-    pass
-
-#Given the 3 sides of a triangle return the area.
-#use herons formula
-#Use the functions above.
-def herons():
-    pass
-
-
-#quadratic equation
-
-#takes in a number as an argument and returns that number multiplied by 2.
-def denominator():
-    pass
-
-#Takes in two arguments. multiply the first argument by negative 1. Then
-#return the modified first argument added and subtracted by the second argument.
-def plusMinus():
-    pass
-#takes in three numbers as arguments. The first and third multiplied together then
-#multiplied by 4.Then subtract that result from the second argument squared.
-#Return the overall result.
-def mainCalc():
-    pass
-
-#The below function should take the inputs of the quadratic equation and return the result
-#Make sure to use all the formulas from this section.
-def quadratic():
-    pass
+def semiPerimeter(a, b, c):
+    return (a + b + c) / 2
+def multiplyDifferences(a, b, c, d):
+    return a * (a - b) * (a - c) * (a - d)
+def herons(a, b, c):
+    s = semiPerimeter(a, b, c)
+    area_squared = multiplyDifferences(s, a, b, c)
+    return root(area_squared)
+def denominator(a):
+    return a * 2
+def plusMinus(a, b):
+    return (-a + b, -a - b)
+def mainCalc(a, b, c):
+    return (b ** 2) - (4 * a * c)
+def quadratic(a, b, c):
+    discriminant = mainCalc(a, b, c)
+    sqrt_disc = root(discriminant)
+    numerator_plus, numerator_minus = plusMinus(b, sqrt_disc)
+    denom = denominator(a)
+    return (numerator_plus / denom, numerator_minus / denom)
+# ---- TEST ----
+print("Heron's triangle area (3,4,5):", herons(3, 4, 5))
+print("Quadratic roots (a=1, b=-3, c=2):", quadratic(1, -3, 2))
